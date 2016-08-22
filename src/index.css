@@ -59,7 +59,7 @@ td:first-of-type {
   bottom: 0;
   width: 100%;
   margin: 0px;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/09/Gfp-southern-wisconsin-further-roadway-scenery-at-sunset.jpg);
+  background-image: url({https://upload.wikimedia.org/wikipedia/commons/0/09/Gfp-southern-wisconsin-further-roadway-scenery-at-sunset.jpg});
   z-index: 0;
   background-position: center top;
   background-repeat: no-repeat;
@@ -116,7 +116,7 @@ td:first-of-type {
   overflow-y:auto; 
   width: 100%;
   margin: 0px ;
-  background-image: url(http://pic.pimg.tw/hunghaowei/1353938469-3998405203.jpg);
+  background-image: url({http://pic.pimg.tw/hunghaowei/1353938469-3998405203.jpg});
   background-position: center top;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -252,7 +252,7 @@ td:first-of-type {
 /*Food and Cafe button*/
 
 .Food {
-    //background: url("./img/Cafe.jpg");
+    //background: url({"./img/Cafe.jpg"});
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
@@ -279,7 +279,7 @@ td:first-of-type {
  
 
 .Cafe {
-    //background: url("./img/Cafe.jpg");
+    //background: url({"./img/Cafe.jpg"});
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
@@ -314,7 +314,7 @@ td:first-of-type {
   bottom: 0;
   width: 100%;
 
-  background-image:url(http://image5.tuku.cn/pic/sucai/shicaibeijing/198.jpg);
+  background-image:url({'http://image5.tuku.cn/pic/sucai/shicaibeijing/198.jpg'});
 }
 
 .luF_button1{
@@ -325,7 +325,7 @@ td:first-of-type {
    display: inline-block;
    padding: 0px;
    text-align: center;
-   background-image:url(./img/A_food.png);
+   background-image:url({./img/A_food.png});
    border: 5px solid #555555;
    opacity:1.0;
    font-weight:900;
@@ -338,7 +338,7 @@ td:first-of-type {
    height: 27%;
    margin: 1.5%  1.5%;
    padding: 0px;
-   background-image:url(./img/C_food.png);
+   background-image:url({./img/C_food.png});
    border: 5px solid #555555;
   font-weight:900
 }
@@ -349,7 +349,7 @@ td:first-of-type {
    height: 27%;
    padding: 0px;
    margin: 1.5% 3% 1.5% 1.5%;
-   background-image:url(./img/F_food.png);
+   background-image:url({./img/F_food.png});
    border: 5px solid #555555;
    font-weight:900
 }
