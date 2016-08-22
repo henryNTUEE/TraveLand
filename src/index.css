@@ -252,7 +252,7 @@ td:first-of-type {
 /*Food and Cafe button*/
 
 .Food {
-    //background: url(./img/Cafe.jpg);
+    background: url(./img/Cafe.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
@@ -279,7 +279,7 @@ td:first-of-type {
  
 
 .Cafe {
-    //background: url(./img/Cafe.jpg);
+    background: url(./img/Cafe.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     position: absolute;
