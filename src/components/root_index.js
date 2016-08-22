@@ -72,7 +72,7 @@ class RootIndex extends Component {
           <Link to="weather">
 					   <h1 className="mark1">TraveLand</h1>
           </Link>
-	      		</div>>
+	      		</div>
 	
 					<Geosuggest
             className = "mySearch"
