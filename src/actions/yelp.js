@@ -20,7 +20,7 @@ var n = require('nonce')();
   var httpMethod = 'GET';
 
   /* The url we are using for the request */
-  var url = 'http://api.yelp.com/v2/search';
+  var url = 'https://api.yelp.com/v2/search';
 
   /* We can setup default parameters here */
   var default_parameters = {
