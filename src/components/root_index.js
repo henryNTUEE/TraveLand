@@ -68,7 +68,7 @@ class RootIndex extends Component {
           <div className="root_text_top">
         
 					   <h1 className="mark1">TraveLand</h1>
-               <div style={{marginBottom: '2px'}}>&copy;Copyright Henry</div>
+               <div style={{marginBottom: '2px'}}>&copy;Copyright Henry, Kevin -- from NTUEE</div>
 	      		</div>
 	       <div className="root_text_top1">
 					<Geosuggest
