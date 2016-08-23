@@ -40,12 +40,14 @@ class Geosuggest extends React.Component {
       activeSuggest: null,
       suggests: [],
       timer: null,
-      photo: []
+      photo: [],
+      check_render: 1
     };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onAfterInputChange = this.onAfterInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.renderMap = this.renderMap.bind(this);
 
     if (props.queryDelay) {
       this.onAfterInputChange =
@@ -381,6 +383,8 @@ class Geosuggest extends React.Component {
         this.props.hello_pos(suggest.location.lat, suggest.location.lng);
         this.setState({mylng: suggest.location.lng,mylat: suggest.location.lat});
     
+        this.props.change_map_view(1);
+        this.setState({check_render: 1});
 
       }
     );
@@ -393,11 +397,38 @@ class Geosuggest extends React.Component {
     
   }
 
+   renderMap() {
+    console.log('checker',this.state.check_render);
+     if (this.state.photo.length > 0) {
+      if(this.state.check_render==1){
+     
+        this.props.change_map_view(2);
+         this.setState({check_render: 2});
+      }
+     
+
+    }
+
+
+    return this.state.photo.map((photo,index) => {
+     
+   
+      return (
+        <img style={{height: '200px', width:'300px', marginLeft: '40px', display: 'block-inline', marginTop: '5px'}} src={photo}/>
+      
+    );
+  
+    });
+  }
+
+ 
+
   /**
    * Render the view
    * @return {Function} The React element to render
    */
   render() {
+
     const attributes = filterInputAttributes(this.props),
       classes = classnames(
         'geosuggest',
@@ -449,7 +480,8 @@ class Geosuggest extends React.Component {
         let lng = this.props.hello_lng || this.state.mylng
         let lat = this.props.hello_lat || this.state.mylat
         console.log("LAT",lat)
-        return <div className={classes}>
+        return <div>
+        <div className={classes}>
           <div className="geosuggest__input-wrapper text-center">
             {input} 
             <Link to={"yelp/" + lat + "/" + lng }  params={{lat},{lng}} >
@@ -459,10 +491,12 @@ class Geosuggest extends React.Component {
           <div className="geosuggest__suggests-wrapper">
             {suggestionsList}
           </div>
-          <div>
-             {this.state.photo.map((p)=>{return <img src={p}/>})}
-          </div>
+          
         </div>;
+        <div>
+           {this.renderMap()}
+          </div>
+        </div>
       }
       
 

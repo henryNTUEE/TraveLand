@@ -26,7 +26,7 @@ class YelpContainer extends Component {
 
     	     <div>
            <div className="fkBack">
-            <Link to="/">Back To Search</Link>
+            <Link to="/"><strong>Back To Search</strong></Link>
             </div>
              <div className="Eating_background">
 

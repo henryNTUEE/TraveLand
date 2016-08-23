@@ -29,6 +29,9 @@ class Transports extends Component {
     return (
    
       <div>
+      <div className="bkBtn" style={{marginTop: '5px'}}>
+        <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>
+      </div>
       <Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
         
             <button type="button" onClick={() => this.handleClick('transport')} className="btn_all">

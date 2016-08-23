@@ -4,6 +4,7 @@ import {request_yelp} from '../actions/yelp';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+
 class Restaurants extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,7 @@ class Restaurants extends Component {
     
     this.handleClick = this.handleClick.bind(this);
   }
+ 
 
 	handleClick(a) {
 		const lat = this.props.params.lat;
@@ -25,10 +27,15 @@ class Restaurants extends Component {
   	}
   
   	render() {
-      console.log(this.props.params);
+      
     return (
    
+       
+
       <div className="Food_background">
+      <div className="bkBtn" style={{marginTop: '5px'}}>
+        <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>
+      </div>
       <Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
         <button type="button"  onClick={() => this.handleClick('newamerican')} className="luF_button1"> 
                             <div className="view third-effect">
@@ -102,6 +109,8 @@ class Restaurants extends Component {
 
       </Link>  
       </div>
+
+      
     );
   }
 }

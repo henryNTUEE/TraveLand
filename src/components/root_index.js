@@ -21,11 +21,13 @@ class RootIndex extends Component {
                   },
             key: `Taiwan`,
             defaultAnimation: 2,
+            check: 1
           }
       };
     	this.onInputChange = this.onInputChange.bind(this);
     	this.onMapClick = this.onMapClick.bind(this);
       this.geoSetPosition = this.geoSetPosition.bind(this);
+      this.change_map_view = this.change_map_view.bind(this);
   	}
 
   	onInputChange(event) {
@@ -42,6 +44,12 @@ class RootIndex extends Component {
         {lat1: lat,lng1: lng}
       );
     }
+    change_map_view(check){
+      this.setState(
+        {check: check}
+      );
+    }
+
 	render(){
 	  var pos={lat: this.state.lat1, lng:this.state.lng1};
 		var fixtures = [];
@@ -49,14 +57,18 @@ class RootIndex extends Component {
     let dlng = pos.lng || 121.5315251;
 		return (
       <div className = "Root_background">
-        <MyMap lat={dlat} lng={dlng} pos={pos} myClick={this.onMapClick}/>
-
+      <Link to="weather">
+      <h3 style={{textAlign: 'right'}}>Search For Weather</h3>
+      </Link>
+      <div>
+        <MyMap lat={dlat} lng={dlng} pos={pos} check={this.state.check} myClick={this.onMapClick}/>
+      </div>
 				<div className="root_center second_root">
 
           <div className="root_text_top">
         
 					   <h1 className="mark1">TraveLand</h1>
-  
+               <div style={{marginBottom: '2px'}}>&copy;Copyright Henry</div>
 	      		</div>
 	       <div className="root_text_top1">
 					<Geosuggest
@@ -64,7 +76,8 @@ class RootIndex extends Component {
 						hello_lat={this.state.lat1}
             hello_lng={this.state.lng1}
             hello_pos={this.geoSetPosition}
-						placeholder="Enter a place"
+            change_map_view={this.change_map_view}
+						placeholder="Search any place"
 						onChange={this.onInputChange}
 						fixtures={fixtures}
 						initialValue={this.state.term}
@@ -72,11 +85,13 @@ class RootIndex extends Component {
 						radius="20"
           />
 
-            
+           
 
           </div>
           
         </div>
+
+
 			</div>
 			
 		);

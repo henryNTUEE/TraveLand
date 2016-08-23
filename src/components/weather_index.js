@@ -14,6 +14,10 @@ class WeatherIndex extends Component {
   render() {
     return (
        <div className = "weather_wrapper">
+            <Link to="/">
+              <strong>Back</strong>
+            </Link>
+
               <div className= "searchBar_wrapper" >
                  <SearchBar />
               </div>

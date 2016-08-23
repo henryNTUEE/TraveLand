@@ -72,9 +72,14 @@ class YelpList extends Component {
   	}
   	else {
   		return (
-     	<div>
-      	
-     	</div>
+      <div>
+      <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={{lat: this.props.params.lat},{lng: this.props.params.lng}} >
+              <button>Back</button>
+          </Link>
+     	<h1>
+      	No data found
+     	</h1>
+      </div>
     );
   	}
     

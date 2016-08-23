@@ -27,6 +27,9 @@ class Beverages extends Component {
   	render() {
     return (
       <div>
+      <div className="bkBtn" style={{marginTop: '5px'}}>
+        <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>
+      </div>
       <Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
           <button type="button" onClick={() => this.handleClick('coffee')} className="btn_coffee">
             <div className="view third-effect_beverage">
