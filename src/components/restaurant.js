@@ -20,7 +20,7 @@ class Restaurants extends Component {
     var default_parameters = {
         category_filter: a,
         ll: lat+ ","+ lng,
-        radius_filter: '10000',
+        radius_filter: '1000',
         sort: '2'
       };
       this.props.request_yelp(default_parameters);
