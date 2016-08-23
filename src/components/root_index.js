@@ -6,6 +6,7 @@ import { GoogleMapLoader, GoogleMap,Marker } from 'react-google-maps';
 import { fetchWeather } from '../actions/index';
 import {request_yelp} from '../actions/yelp';
 import Geosuggest from '../GeoSuggest/Geosuggest';
+import MyMap from './my_map';
 // <div>City Detail {this.props.params.name} {this.props.params.lon1} {this.props.params.lat1}</div>
 
 class RootIndex extends Component {
@@ -31,7 +32,7 @@ class RootIndex extends Component {
     	this.setState({ term: event.target.value });
   	}
     onMapClick(event){
-      console.log(event.latLng.lat());
+   
       this.setState(
         {lat1: event.latLng.lat(),lng1: event.latLng.lng()}
       );
@@ -48,32 +49,16 @@ class RootIndex extends Component {
     let dlng = pos.lng || 121.5315251;
 		return (
       <div className = "Root_background">
+        <MyMap lat={dlat} lng={dlng} pos={pos} myClick={this.onMapClick}/>
 
-			<GoogleMapLoader
-            containerElement={ <div style={{height: '40%', width:'23%',align: '50%'}} /> }
-            googleMapElement={
-               <GoogleMap 
-                  defaultZoom={12} 
-                  center={{lat: dlat,lng: dlng}}
-                  onClick={this.onMapClick}
-                >
-                   <Marker />
-                   <Marker position={pos} />
-                   
-                </GoogleMap>
-            }
-          />
+				<div className="root_center second_root">
 
-        
-
-			
-				<div className="root_center">
           <div className="root_text_top">
-          <Link to="weather">
+        
 					   <h1 className="mark1">TraveLand</h1>
-          </Link>
+  
 	      		</div>
-	
+	       <div className="root_text_top1">
 					<Geosuggest
             className = "mySearch"
 						hello_lat={this.state.lat1}
@@ -87,7 +72,9 @@ class RootIndex extends Component {
 						radius="20"
           />
 
-          
+            
+
+          </div>
           
         </div>
 			</div>

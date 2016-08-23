@@ -35,6 +35,11 @@ td, th {
   text-align: center !important;
 }
 
+.myfkmap {
+  vertical-align: middle !important;
+  margin-left: 50% !important;
+}
+
 td:first-of-type {
   height: 200px;
   width: 250px;
