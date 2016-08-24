@@ -64,11 +64,24 @@ var n = require('nonce')();
 
   /* Then we use request to send make the API Request */
   // request(apiURL, function(error, response, body){
-  //   return callback(error, response, body);
+  //   response.header('Access-Control-Allow-Origin', '*');
+  //   response.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  //   response.header('Access-Control-Allow-Headers', 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
   // });	
  
   console.log(apiURL);
-  const request = axios.get(apiURL);
+
+  axios.get(apiURL)
+  .then(function (response) {
+    response.header('Access-Control-Allow-Origin', '*');
+    response.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    response.header('Access-Control-Allow-Headers', 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
+  })
+  
+
+
+
+  //const request = axios.get(apiURL);
 
   //console.log(request);
 
