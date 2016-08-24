@@ -86,7 +86,7 @@ var n = require('nonce')();
 
   //const request = axios.get(apiURL);
 
-  console.log('request', request);
+  console.log('request', request.headers);
 
   return {
     type: FETCH_YELP,
