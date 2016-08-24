@@ -71,11 +71,16 @@ var n = require('nonce')();
  
   console.log(apiURL);
 
+//   var instance = axios.create({
+//     baseURL: apiURL,
+//     headers: {'Access-Control-Allow-Origin': '*',}
+// });
+
   axios.get(apiURL)
   .then(function (response) {
-    response.header('Access-Control-Allow-Origin', '*');
-    response.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-    response.header('Access-Control-Allow-Headers', 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
+    response.header('Access-Control-Allow-Origin': '*');
+    response.header('Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS');
+    response.header('Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token');
   })
   
 
