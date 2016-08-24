@@ -421,6 +421,26 @@ class Geosuggest extends React.Component {
     });
   }
 
+   insert(){
+            if(window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }else{
+                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+            };
+
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    document.getElementById('message').innerHTML = xmlhttp.responseText;
+                };  
+            };
+
+            parameters = 'insert_text='+document.getElementById('insert_text').value;
+
+            xmlhttp.open('GET','ajax_posting_data.php',true);
+            xmlhttp.setRequestHeader('Access-Control-Allow-Origin', 'application/x-www-form-urlencoded');
+            xmlhttp.send(parameters);
+        };
+
  
 
   /**
@@ -428,7 +448,7 @@ class Geosuggest extends React.Component {
    * @return {Function} The React element to render
    */
   render() {
-
+    this.insert();
     const attributes = filterInputAttributes(this.props),
       classes = classnames(
         'geosuggest',
