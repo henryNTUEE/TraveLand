@@ -76,7 +76,7 @@ var n = require('nonce')();
     headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token' }
 });
 
-  axios.get(instance)
+  instance.get()
   .then(function (response) {
     {response.headers =  {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token'}}
     
