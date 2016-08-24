@@ -20,7 +20,7 @@ var n = require('nonce')();
   var httpMethod = 'GET';
 
   /* The url we are using for the request */
-  var url = 'https://api.yelp.com/v2/search';
+  var url = 'www.api.yelp.com/v2/search';
 
   /* We can setup default parameters here */
   var default_parameters = {
@@ -74,7 +74,7 @@ var n = require('nonce')();
 //   var instance = axios.create({
 //     headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token' }
 // });
-  console.log(axios.headers);
+  
   const request = axios.get(apiURL)
   // .then(function (response) {
   //   //{response.headers =  {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token'}}
