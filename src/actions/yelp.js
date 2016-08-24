@@ -72,11 +72,10 @@ var n = require('nonce')();
   console.log(apiURL);
 
   var instance = axios.create({
-    baseURL: apiURL,
     headers: {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token' }
 });
 
-  instance.get()
+  instance.get(apiURL)
   .then(function (response) {
     {response.headers =  {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token'}}
     
