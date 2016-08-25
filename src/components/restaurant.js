@@ -36,7 +36,7 @@ class Restaurants extends Component {
       <div className="bkBtn" style={{marginTop: '5px'}}>
         <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>
       </div>
-      <Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
+      <Link to={"Form/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
         <button type="button"  onClick={() => this.handleClick('newamerican')} className="luF_button1"> 
                             <div className="view third-effect">
                                <div className="mask">

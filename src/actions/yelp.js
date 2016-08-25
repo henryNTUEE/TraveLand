@@ -76,8 +76,6 @@ var n = require('nonce')();
 // });
   
   const request = axios.get(apiURL).then((res)=>{
-     console.log("Res",res)
-     console.log(res.data.result,cb)
   })
   // .then(function (response) {
   //   //{response.headers =  {'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS','Access-Control-Allow-Headers': 'accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token'}}

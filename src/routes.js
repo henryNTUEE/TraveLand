@@ -14,7 +14,7 @@ import Desserts from './components/dessert_component';
 import Livings from './components/living_component';
 import Transports from './components/transport_component';
 import Resorts from './components/resort_component';
-
+import FormSumbit from './components/Redux_form';
 
 export default (
 	<Route path="/" component={App} >
@@ -28,7 +28,7 @@ export default (
 		<Route path="Living/:lat/:lng" component={Livings} handler={Livings} />
 		<Route path="Transport/:lat/:lng" component={Transports} handler={Transports} />
 		<Route path="Resort/:lat/:lng" component={Resorts} handler={Resorts} />
-
+		<Route path="Form/:lat/:lng" component={FormSumbit} handler={FormSumbit} />
 	</Route>
 );
 
