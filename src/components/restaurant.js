@@ -27,7 +27,7 @@ class Restaurants extends Component {
   //     };
   //     this.props.request_yelp(default_parameters);
   
-  this.context.router.push("/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a);
+  this.context.router.push({pathname: "/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a, query:{lat:this.props.params.lat,lng:this.props.params.lng,filter:a}});
 
   }
   

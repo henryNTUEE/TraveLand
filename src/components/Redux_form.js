@@ -16,6 +16,7 @@ class FormSumbit extends Component {
     const filter = this.props.params.filter
 
     console.log('lat', lat);
+    console.log('query',this.props.query)
 
     var default_parameters = {
         category_filter: filter,
@@ -40,7 +41,7 @@ class FormSumbit extends Component {
 
   render() {
     //const handleSubmit = this.props.handleSubmit
-    const { fields: { title, categories, content }, handleSubmit } = this.props;
+    const { fields: { title, categories }, handleSubmit } = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -84,9 +85,7 @@ function validate(values) {
   if (!values.categories) {
     errors.categories = 'Enter categories';
   }
-  if(!values.content) {
-    errors.content = 'Enter some content';
-  }
+  
 
   return errors;
 }
@@ -95,6 +94,6 @@ function validate(values) {
 // reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 export default reduxForm({
   form: 'PostsNewForm',
-  fields: ['title', 'categories', 'content'],
+  fields: ['title', 'categories'],
   validate
 }, null, {})(FormSumbit);
