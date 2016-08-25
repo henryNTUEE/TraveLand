@@ -27,16 +27,13 @@ class Restaurants extends Component {
   //     };
   //     this.props.request_yelp(default_parameters);
   
-  this.context.router.push({pathname: "/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a, query:{lat:this.props.params.lat,lng:this.props.params.lng,filter:a}});
+  this.context.router.push({pathname: "/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a});
 
   }
   
   	render() {
       
     return (
-   
-       
-
       <div className="Food_background">
       <div className="bkBtn" style={{marginTop: '5px'}}>
         <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>

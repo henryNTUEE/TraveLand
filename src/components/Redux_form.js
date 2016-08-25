@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 //import { createPost } from '../actions/index';
 import { Link } from 'react-router';
+import {request_yelp} from '../actions/yelp';
 
 class FormSumbit extends Component {
   static contextTypes = {
@@ -15,7 +16,7 @@ class FormSumbit extends Component {
     const lng = this.props.params.lng;
     const filter = this.props.params.filter
 
-    console.log('lat', lat);
+    console.log('params', this.props.params);
     console.log('query',this.props.query)
 
     var default_parameters = {
