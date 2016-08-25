@@ -9,6 +9,7 @@ class FormSumbit extends Component {
   };
 
   onSubmit(props) {
+    console.log(this.props);
     this.props.createPost(props)
       .then(() => {
         // blog post has been created, navigate the user to the index
