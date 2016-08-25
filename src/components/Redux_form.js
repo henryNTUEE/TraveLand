@@ -11,15 +11,17 @@ class FormSumbit extends Component {
   onSubmit(props) {
     console.log(this.props);
 
-    // const lat = this.props.params.lat;
-    // const lng = this.props.params.lng;
-    // var default_parameters = {
-    //     category_filter: a,
-    //     ll: lat+ ","+ lng,
-    //     radius_filter: '1000',
-    //     sort: '2'
-    //   };
-    // this.props.request_yelp(default_parameters);
+    const lat = this.props.params.lat;
+    const lng = this.props.params.lng;
+    const filter = this.props.params.filter
+
+    var default_parameters = {
+        category_filter: filter,
+        ll: lat+ ","+ lng,
+        radius_filter: this.props.fields.title.value,
+        sort: this.props.fields.categories.value
+      };
+    this.props.request_yelp(default_parameters);
 
     this.context.router.push("/YelpList/"+this.props.params.lat+"/"+this.props.params.lng);
     //"YelpList/"+this.props.params.lat+"/"+this.props.params.lng
@@ -43,7 +45,7 @@ class FormSumbit extends Component {
         <h3>Create A New Post</h3>
 
         <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-          <label>Title</label>
+          <label>Search Radius (meter)</label>
           <input type="text" className="form-control" {...title} />
           <div className="text-help">
             {title.touched ? title.error : ''}
@@ -51,25 +53,19 @@ class FormSumbit extends Component {
         </div>
 
         <div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
-          <label>Categories</label>
+          <label>Type of Sorting: 1=>'By distance', 2=>'By reviews', 3=>'Best Match' </label>
           <input type="text" className="form-control" {...categories} />
           <div className="text-help">
             {categories.touched ? categories.error : ''}
           </div>
         </div>
 
-        <div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
-          <label>Content</label>
-          <textarea className="form-control" {...content} />
-          <div className="text-help">
-            {content.touched ? content.error : ''}
-          </div>
-        </div>
+        
 
         
         <button type="submit" className="btn btn-primary">Submit</button>
      
-        <Link to="/" className="btn btn-danger">Cancel</Link>
+        <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={{lat: this.props.params.lat},{lng: this.props.params.lng}} className="btn btn-danger">Cancel</Link>
       </form>
     );
   }

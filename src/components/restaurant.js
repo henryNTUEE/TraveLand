@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,PropTypes } from 'react';
 import {Link} from 'react-router';
 import {request_yelp} from '../actions/yelp';
 import {connect} from 'react-redux';
@@ -8,25 +8,27 @@ import { bindActionCreators } from 'redux';
 class Restaurants extends Component {
   constructor(props) {
     super(props);
-
-    
     this.handleClick = this.handleClick.bind(this);
   }
+
+  static contextTypes = {
+    router: PropTypes.object
+  };
  
 
 	handleClick(a) {
-		const lat = this.props.params.lat;
-    const lng = this.props.params.lng;
-    var default_parameters = {
-        category_filter: a,
-        ll: lat+ ","+ lng,
-        radius_filter: '1000',
-        sort: '2'
-      };
-      this.props.request_yelp(default_parameters);
+		// const lat = this.props.params.lat;
+  //   const lng = this.props.params.lng;
+  //   var default_parameters = {
+  //       category_filter: a,
+  //       ll: lat+ ","+ lng,
+  //       radius_filter: '1000',
+  //       sort: '2'
+  //     };
+  //     this.props.request_yelp(default_parameters);
   
+  this.context.router.push("/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a);
 
-      
   }
   
   	render() {
@@ -39,7 +41,7 @@ class Restaurants extends Component {
       <div className="bkBtn" style={{marginTop: '5px'}}>
         <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>
       </div>
-      <Link to={"Form/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
+      
         <button type="button"  onClick={() => this.handleClick('newamerican')} className="luF_button1"> 
                             <div className="view third-effect">
                                <div className="mask">
@@ -110,7 +112,7 @@ class Restaurants extends Component {
         
         
 
-      </Link>  
+    
       </div>
 
       

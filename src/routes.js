@@ -28,7 +28,7 @@ export default (
 		<Route path="Living/:lat/:lng" component={Livings} handler={Livings} />
 		<Route path="Transport/:lat/:lng" component={Transports} handler={Transports} />
 		<Route path="Resort/:lat/:lng" component={Resorts} handler={Resorts} />
-		<Route path="Form/:lat/:lng" component={FormSumbit} handler={FormSumbit} />
+		<Route path="Form/:lat/:lng/:filter" component={FormSumbit} handler={FormSumbit} />
 	</Route>
 );
 
