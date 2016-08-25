@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,PropTypes } from 'react';
 import {Link} from 'react-router';
 import {request_yelp} from '../actions/yelp';
 import {connect} from 'react-redux';
@@ -12,16 +12,12 @@ class Livings extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
 	handleClick(a) {
-		const lat = this.props.params.lat;
-    const lng = this.props.params.lng;
-    var default_parameters = {
-        category_filter: a,
-        ll: lat+ ","+ lng,
-        radius_filter: '1000',
-        sort: '2'
-      };
-      this.props.request_yelp(default_parameters);
+		this.context.router.push({pathname: "/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a});
   	}
   
   	render() {
@@ -32,8 +28,7 @@ class Livings extends Component {
       <div className="bkBtn" style={{marginTop: '5px'}}>
         <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={this.props.params} ><strong>Back</strong></Link>
       </div>
-      <Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
-        
+      
             <button type="button" onClick={() => this.handleClick('hotels')} className="btn_hotels">
                <div className="view third-effect_living">
                <div className="mask">
@@ -55,10 +50,7 @@ class Livings extends Component {
                </div>
                </div> 
             </button>
-		 
-        
-
-      </Link>  
+		
       </div>
     );
   }

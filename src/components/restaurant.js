@@ -17,15 +17,7 @@ class Restaurants extends Component {
  
 
 	handleClick(a) {
-		// const lat = this.props.params.lat;
-  //   const lng = this.props.params.lng;
-  //   var default_parameters = {
-  //       category_filter: a,
-  //       ll: lat+ ","+ lng,
-  //       radius_filter: '1000',
-  //       sort: '2'
-  //     };
-  //     this.props.request_yelp(default_parameters);
+		
   
   this.context.router.push({pathname: "/Form/"+this.props.params.lat+"/"+this.props.params.lng + "/" + a});
 

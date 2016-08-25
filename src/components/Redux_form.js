@@ -8,6 +8,8 @@ class FormSumbit extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {value: '1'}
   }
 
   static contextTypes = {
@@ -21,15 +23,28 @@ class FormSumbit extends Component {
     const lng = this.props.params.lng;
     const filter = this.props.params.filter
 
-    console.log('params', this.props.params);
-    console.log('query',this.props.query)
+    console.log(this.props)
 
-    var default_parameters = {
+    var default_parameters;
+
+    if (!this.state.value) {
+
+     default_parameters = {
         category_filter: filter,
         ll: lat+ ","+ lng,
         radius_filter: this.props.fields.title.value,
-        sort: this.props.fields.categories.value
+        
       };
+    }
+    else {
+       default_parameters = {
+        category_filter: filter,
+        ll: lat+ ","+ lng,
+        radius_filter: this.props.fields.title.value,
+        sort: this.state.value
+      };
+
+    }
     this.props.request_yelp(default_parameters);
 
     this.context.router.push("/YelpList/"+this.props.params.lat+"/"+this.props.params.lng);
@@ -45,37 +60,50 @@ class FormSumbit extends Component {
     //   });
   }
 
+  handleChange (event){
+    console.log(event.target.value);
+    this.setState({value: event.target.value});
+  }
+
   render() {
     //const handleSubmit = this.props.handleSubmit
-    const { fields: { title, categories }, handleSubmit } = this.props;
+    var { fields: { title, categories }, handleSubmit } = this.props;
 
     return (
+
       <form onSubmit={handleSubmit(this.onSubmit)}>
-        <h3>Create A New Post</h3>
+        <h3>Search Criteria</h3>
 
         <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-          <label>Search Radius (meter)</label>
-          <input type="text" className="form-control" {...title} />
+          <label>Search Radius (meter, ex: 1000)</label>
+          <input type="text" className="form-control" placeholder="Enter number of radius" {...title} />
           <div className="text-help">
             {title.touched ? title.error : ''}
           </div>
         </div>
 
         <div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
-          <label>Type of Sorting: 1=>'By distance', 2=>'By reviews', 3=>'Best Match' </label>
-          <input type="text" className="form-control" {...categories} />
+          <label>Sorting</label>
+          <select value={this.state.value} onChange={this.handleChange} className="form-control">
+            
+            <option value="1" >By Distance</option>
+            <option value="2" >By Rating</option>
+            <option value="" >Best Match</option>
+
+          </select>
+         
           <div className="text-help">
             {categories.touched ? categories.error : ''}
           </div>
         </div>
 
-        
-
-        
         <button type="submit" className="btn btn-primary">Submit</button>
-     
         <Link to={"yelp/" + this.props.params.lat + "/" + this.props.params.lng }  params={{lat: this.props.params.lat},{lng: this.props.params.lng}} className="btn btn-danger">Cancel</Link>
       </form>
+
+
+     
+      
     );
   }
 }
@@ -85,12 +113,12 @@ class FormSumbit extends Component {
 function validate(values) {
   const errors = {};
 
-  if (!values.title) {
-    errors.title = 'Enter a username';
-  }
-  if (!values.categories) {
-    errors.categories = 'Enter categories';
-  }
+  // if (!values.title) {
+  //   errors.title = 'Enter a username';
+  // }
+  // if (!values.categories) {
+  //   errors.categories = 'Enter categories';
+  // }
   
 
   return errors;

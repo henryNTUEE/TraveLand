@@ -398,7 +398,7 @@ class Geosuggest extends React.Component {
   }
 
    renderMap() {
-    console.log('checker',this.state.check_render);
+
      if (this.state.photo.length > 0) {
       if(this.state.check_render==1){
      
@@ -466,7 +466,7 @@ class Geosuggest extends React.Component {
         onSuggestSelect={this.selectSuggest}/>;
 
       if (!this.state.mylng && !this.props.hello_lng) {
-        console.log("P",this.props)
+     
         return <div className={classes}>
             <div className="geosuggest__input-wrapper text-center" >
               {input}
@@ -480,7 +480,7 @@ class Geosuggest extends React.Component {
       else {
         let lng = this.props.hello_lng || this.state.mylng
         let lat = this.props.hello_lat || this.state.mylat
-        console.log("LAT",lat)
+     
         return <div>
         <div className={classes}>
           <div className="geosuggest__input-wrapper text-center">

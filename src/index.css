@@ -12,6 +12,15 @@ body {
   width:100%;
 }
 
+form a {
+  margin-left: 5px;
+}
+
+.myForm{
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
 .container {
   height: 100% !important;
   width:  100% !important;
