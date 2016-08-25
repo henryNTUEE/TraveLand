@@ -102,4 +102,4 @@ export default reduxForm({
   form: 'PostsNewForm',
   fields: ['title', 'categories'],
   validate
-}, null, {})(FormSumbit);
+}, null, {request_yelp})(FormSumbit);
