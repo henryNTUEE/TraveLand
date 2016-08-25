@@ -15,6 +15,8 @@ class FormSumbit extends Component {
     const lng = this.props.params.lng;
     const filter = this.props.params.filter
 
+    console.log('lat', lat);
+
     var default_parameters = {
         category_filter: filter,
         ll: lat+ ","+ lng,
