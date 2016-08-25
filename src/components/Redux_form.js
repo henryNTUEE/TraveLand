@@ -9,7 +9,7 @@ class FormSumbit extends Component {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  
+
   static contextTypes = {
     router: PropTypes.object
   };
@@ -50,7 +50,7 @@ class FormSumbit extends Component {
     const { fields: { title, categories }, handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <h3>Create A New Post</h3>
 
         <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
