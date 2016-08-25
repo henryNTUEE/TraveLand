@@ -5,6 +5,11 @@ import { Link } from 'react-router';
 import {request_yelp} from '../actions/yelp';
 
 class FormSumbit extends Component {
+  constructor(props) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  
   static contextTypes = {
     router: PropTypes.object
   };
