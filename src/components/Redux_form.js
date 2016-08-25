@@ -21,7 +21,7 @@ class FormSumbit extends Component {
     //   };
     // this.props.request_yelp(default_parameters);
 
-    this.context.router.push("/YelpList/"+this.props.params.lat+"/"+this.props.params.lng/);
+    this.context.router.push("/YelpList/"+this.props.params.lat+"/"+this.props.params.lng);
     //"YelpList/"+this.props.params.lat+"/"+this.props.params.lng
 
     // this.props.createPost(props)
