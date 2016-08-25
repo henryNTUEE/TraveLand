@@ -24,7 +24,10 @@ class Restaurants extends Component {
         sort: '2'
       };
       this.props.request_yelp(default_parameters);
-  	}
+  
+
+      
+  }
   
   	render() {
       

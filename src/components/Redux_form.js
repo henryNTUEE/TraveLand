@@ -11,7 +11,18 @@ class FormSumbit extends Component {
   onSubmit(props) {
     console.log(this.props);
 
-    this.context.router.push('/');
+    // const lat = this.props.params.lat;
+    // const lng = this.props.params.lng;
+    // var default_parameters = {
+    //     category_filter: a,
+    //     ll: lat+ ","+ lng,
+    //     radius_filter: '1000',
+    //     sort: '2'
+    //   };
+    // this.props.request_yelp(default_parameters);
+
+    this.context.router.push("/YelpList/"+this.props.params.lat+"/"+this.props.params.lng/);
+    //"YelpList/"+this.props.params.lat+"/"+this.props.params.lng
 
     // this.props.createPost(props)
     //   .then(() => {
