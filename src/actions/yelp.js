@@ -71,9 +71,9 @@ var n = require('nonce')();
  
   console.log(apiURL);
 
-  var instance = axios.create({
-    headers: {'Access-Control-Allow-Origin': '*'}
-});
+//   var instance = axios.create({
+//     headers: {'Access-Control-Allow-Origin': '*'}
+// });
   
   const request = axios.get(apiURL)
   // .then(function (response) {
