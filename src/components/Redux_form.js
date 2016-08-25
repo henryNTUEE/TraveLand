@@ -14,11 +14,13 @@ class FormSumbit extends Component {
         // blog post has been created, navigate the user to the index
         // We navigate by calling this.context.router.push with the
         // new path to navigate to.
+        console.log(this.props);
         this.context.router.push('/');
       });
   }
 
   render() {
+    //const handleSubmit = this.props.handleSubmit
     const { fields: { title, categories, content }, handleSubmit } = this.props;
 
     return (
