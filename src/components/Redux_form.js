@@ -52,14 +52,16 @@ class FormSumbit extends Component {
           </div>
         </div>
 
-        <Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
+        
         <button type="submit" className="btn btn-primary">Submit</button>
-        </Link>
+     
         <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
     );
   }
 }
+
+//<Link to={"YelpList/"+this.props.params.lat+"/"+this.props.params.lng} params={this.props.params}>
 
 function validate(values) {
   const errors = {};
