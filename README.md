@@ -6,7 +6,7 @@ STEP of Usage:
 
 1. Users can type any place in the search bar or just simply click on the map. Some images may be rendered to help users have a quick glance of the places. 
 
-2. After selecting the place, click the search button to navigate to the next page where users can select the things willing to search.
+2. After selecting the place, click the search button to navigate to the next page where users can select the category willing to search.
 
 3. After selecting one of the six categories, users can delve into more specific topic in each category.
 
